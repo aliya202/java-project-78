@@ -27,9 +27,6 @@ jobs:
           arguments: build --refresh-dependencies
           build-root-directory: app
 
-      - name: Print Dependency Tree
-        run: ./gradlew dependencies --info
-
       - name: Check Style
         run: ./gradlew checkstyleMain
 
