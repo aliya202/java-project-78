@@ -33,7 +33,9 @@ class ValidatorTest {
         assertThat(schema.isValid("abc")).isTrue();
 
         assertThat(schema.contains("wh").isValid("what does the fox say")).isTrue();
-        assertThat(schema.contains("whatthe").isValid("nwhat does the fox say")).isFalse();
+        assertThat(schema.contains("whatthe").isValid("what does the fox say")).isFalse();
+
+        assertThat(schema.isValid("what does the fox say")).isFalse();
     }
 
     @Test
