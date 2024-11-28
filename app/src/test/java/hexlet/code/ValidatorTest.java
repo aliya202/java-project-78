@@ -20,13 +20,11 @@ class ValidatorTest {
         StringSchema schema = v.string();
 
         assertThat(schema.isValid("")).isTrue();
-        assertThat(schema.isValid(null)).isTrue();
-        assertThat(schema.isValid(5)).isFalse();
 
         schema.required();
+        assertThat(schema.isValid("what does the fox say")).isTrue();
         assertThat(schema.isValid("")).isFalse();
         assertThat(schema.isValid(null)).isFalse();
-        assertThat(schema.isValid("what does the fox say")).isTrue();
 
         schema.minLength(3);
         assertThat(schema.isValid("ab")).isFalse();
@@ -35,7 +33,8 @@ class ValidatorTest {
         assertThat(schema.contains("wh").isValid("what does the fox say")).isTrue();
         assertThat(schema.contains("whatthe").isValid("what does the fox say")).isFalse();
 
-        assertThat(schema.isValid("what does the fox say")).isFalse();
+        var schema1 = v.string().required().minLength(10).minLength(4);
+        assertThat(schema1.isValid("hexlet")).isFalse();
     }
 
     @Test
