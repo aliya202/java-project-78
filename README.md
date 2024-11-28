@@ -13,7 +13,9 @@ It's a library that can be used to validate:
 - String
 - Map
 - Values of the keys in the Map
-Important: If the value is null required() is not used, data will be validated.
+
+
+Important: If the value is null and required() is not used, data will be validated.
 
 The project is based on the yup library.
 
